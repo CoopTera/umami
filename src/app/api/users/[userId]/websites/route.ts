@@ -21,7 +21,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ user
     return unauthorized();
   }
 
-  const websites = await getUserWebsites(userId, query);
+  const websites = await getUserWebsites(userId, query, auth.user.isAdmin);
 
   return json(websites);
 }

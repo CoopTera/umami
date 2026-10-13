@@ -91,12 +91,11 @@ export async function getAllUserWebsitesIncludingTeamOwner(userId: string) {
 export async function getUserWebsites(
   userId: string,
   filters?: PageParams,
+  includeAll = false,
 ): Promise<PageResult<Website[]>> {
   return getWebsites(
     {
-      where: {
-        userId,
-      },
+      where: includeAll ? {} : { userId },
       include: {
         user: {
           select: {

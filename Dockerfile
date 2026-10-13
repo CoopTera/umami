@@ -4,7 +4,7 @@ FROM node:22-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9.15.9
 RUN pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
@@ -36,7 +36,7 @@ ENV NODE_OPTIONS=$NODE_OPTIONS
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9.15.9
 
 RUN set -x \
     && apk add --no-cache curl

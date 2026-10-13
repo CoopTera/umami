@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
-import { Icon, Text } from 'react-basics';
+import { Text } from 'react-basics';
+import wordmark from '@/assets/tera-logo.png';
 import Link from 'next/link';
 import classNames from 'classnames';
 import HamburgerButton from '@/components/common/HamburgerButton';
@@ -97,10 +98,7 @@ export function NavBar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>
-        <Icon size="lg">
-          <Icons.Logo />
-        </Icon>
-        <Text>umami</Text>
+        <img src={wordmark.src} height={26} alt="Tera" style={{ width: 'auto' }} />
       </div>
       <div className={styles.links}>
         {links.map(({ url, label }) => {

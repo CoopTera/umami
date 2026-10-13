@@ -6,13 +6,12 @@ import {
   TextField,
   PasswordField,
   SubmitButton,
-  Icon,
 } from 'react-basics';
 import { useRouter } from 'next/navigation';
 import { useApi, useMessages } from '@/components/hooks';
 import { setUser } from '@/store/app';
 import { setClientAuthToken } from '@/lib/client';
-import Logo from '@/assets/logo.svg';
+import wordmark from '@/assets/tera-logo.png';
 import styles from './LoginForm.module.css';
 
 export function LoginForm() {
@@ -36,10 +35,12 @@ export function LoginForm() {
 
   return (
     <div className={styles.login}>
-      <Icon className={styles.icon} size="xl">
-        <Logo />
-      </Icon>
-      <div className={styles.title}>umami</div>
+      <img
+        src={wordmark.src}
+        height={48}
+        alt="Tera"
+        style={{ display: 'block', margin: '0 auto', width: 'auto' }}
+      />
       <Form className={styles.form} onSubmit={handleSubmit} error={getMessage(error)}>
         <FormRow label={formatMessage(labels.username)}>
           <FormInput

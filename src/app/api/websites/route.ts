@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     return error();
   }
 
-  const websites = await getUserWebsites(auth.user.id, query);
+  const websites = await getUserWebsites(auth.user.id, query, auth.user.isAdmin);
 
   return json(websites);
 }
